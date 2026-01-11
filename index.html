@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>さくら申込フォーム</title>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", sans-serif;
+    background-image: url("https://images.unsplash.com/photo-1549693578-d683be217e58");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  .overlay {
+    min-height: 100vh;
+    background: rgba(255, 235, 243, 0.8);
+    padding: 50px 0;
+  }
+
+  .container {
+    max-width: 500px;
+    margin: auto;
+    background: rgba(255,255,255,0.95);
+    padding: 30px;
+    border-radius: 20px;
+    border: 3px solid #ffb7cc;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+  }
+
+  h1 {
+    text-align: center;
+    color: #c73b6f;
+  }
+
+  .jp {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+
+  input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ff9ebc, #ff6f91);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .thankyou {
+    display: none;
+    text-align: center;
+  }
+
+  .thankyou h2 {
+    color: #c73b6f;
+  }
+
+  .thankyou a {
+    display: block;
+    margin: 15px 0;
+    padding: 14px;
+    border-radius: 25px;
+    background: #ffe0eb;
+    color: #b03060;
+    text-decoration: none;
+    font-weight: bold;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="overlay">
+  <div class="container">
+
+    <!-- FORM -->
+    <div id="formBox">
+      <h1>🌸 Sakura Houkago Recruitment Form 🌸</h1>
+      <p class="jp">富士山・桜・日本</p>
+
+      <form action="https://docs.google.com/forms/d/e/1FAIpQLSdT0jmHTeLCGrA7hn__IMY0jHfTuzGwa-tLLu2h_hSGmknOKQ/formRespond"
+            method="POST"
+            target="hidden_iframe"
+            onsubmit="showThankYou()">
+
+        <label>貴方は名前何ですか？
+/(Nama kamu siapa?)</label>
+        <input type="text" name="entry.1227597404" required>
+
+        <label>SMAまたはSMPから?
+/(Dari SMA Atau SMP)</label>
+        <select name="entry.287472053" required>
+          <option value="" disabled selected>-- wajib pilih --</option>
+          <option value="Sma">SMA (高校)</option>
+          <option value="Smp">SMP (中学校)</option>
+        </select>
+
+        <label>貴方のクラスは何ですか？
+/(Kamu kelas berapa? Ex: 8A , 12.1)</label>
+        <input type="text" name="entry.1708316230" required>
+
+        <label>番号かLINE IDを教えてください
+/(Tolong kasih nomor telepon atau line id kamu)</label>
+        <input type="text" name="entry.1037671053" required>
+
+        <label>alasan kenapa mau ikut club sakura houkago club?</label>
+        <input type="text" name="entry.267976602" required>
+
+        <button type="submit">🌸 送信 / Kirim 🌸</button>
+      </form>
+    </div>
+
+    <!-- THANK YOU -->
+    <div id="thankYouBox" class="thankyou">
+      <h2>ありがとうございます 🌸</h2>
+      <p><strong>Terima kasih sudah mengisi form</strong></p>
+      <p>Tolong join grup sesuai jenjang ya</p>
+
+      <a href="https://chat.whatsapp.com/IYXwQZ60LpO7jfs1bslyZH" target="_blank">
+        🌸 Grup WhatsApp SMA 🌸
+      </a>
+
+      <a href="https://chat.whatsapp.com/Ev7TFg9trsMEV5bNGilGd8" target="_blank">
+        🌸 Grup WhatsApp SMP 🌸
+      </a>
+
+      <p class="jp">春・さくら・富士山</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- HIDDEN IFRAME FOR GOOGLE FORM -->
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
+<script>
+  function showThankYou() {
+    document.getElementById("formBox").style.display = "none";
+    document.getElementById("thankYouBox").style.display = "block";
+  }
+</script>
+
+</body>
+</html>
