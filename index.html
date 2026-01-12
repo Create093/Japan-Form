@@ -5,218 +5,294 @@
 <title>さくら申込フォーム</title>
 
 <style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: "Segoe UI", sans-serif;
-    background-image: url("Japan.png");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    overflow-x: hidden;
-  }
+/* ===== RESET ===== */
+* {
+  box-sizing: border-box;
+}
 
-  /* ===== SPLASH SCREEN ===== */
-  .splash {
-    position: fixed;
-    inset: 0;
-    background: rgba(255, 235, 243, 0.95);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    transition: opacity 1s ease;
-  }
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: url("Japan.png") center / cover fixed;
+  overflow-x: hidden;
+}
 
-  .splash.hide {
-    opacity: 0;
-    pointer-events: none;
-  }
+/* ===== SPLASH ===== */
+#splash {
+  position: fixed;
+  inset: 0;
+  background: rgba(255,235,243,0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: opacity 1s ease;
+}
 
-  .splash-logo {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    transition: all 1.2s ease-in-out;
-  }
+#splash.hide {
+  opacity: 0;
+  pointer-events: none;
+}
 
-  /* ===== HEADER ===== */
-  .header {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(6px);
-    border-bottom: 2px solid #ffd1e1;
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: all 0.8s ease;
-  }
+#splash img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+}
 
-  .header.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* ===== HEADER ===== */
+header {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(6px);
+  border-bottom: 2px solid #ffd1e1;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: 0.8s ease;
+}
 
-  .header-inner {
-    max-width: 1100px;
-    margin: auto;
-    padding: 15px 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+header.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
+.header-inner {
+  max-width: 1100px;
+  margin: auto;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .logo img {
-    height: 45px;
-    border-radius: 50%;
-  }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-  .logo span {
-    font-weight: bold;
-    color: #c73b6f;
-  }
+.logo img {
+  height: 45px;
+  border-radius: 50%;
+}
 
-  .menu {
-    display: flex;
-    gap: 25px;
-  }
+.logo span {
+  font-weight: bold;
+  color: #c73b6f;
+}
 
-  .menu a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    color: #444;
-  }
+.menu a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #444;
+}
 
-  .menu img {
-    width: 22px;
-    height: 22px;
-  }
+.menu img {
+  width: 22px;
+}
 
-  .zigzag {
-    height: 25px;
-    background: repeating-linear-gradient(
-      135deg,
-      transparent,
-      transparent 20px,
-      #ffd1e1 20px,
-      #ffd1e1 22px
-    );
-    opacity: 0;
-    transition: opacity 0.8s ease;
-  }
+/* ===== DECOR ===== */
+.zigzag {
+  height: 25px;
+  background: repeating-linear-gradient(
+    135deg,
+    transparent,
+    transparent 20px,
+    #ffd1e1 20px,
+    #ffd1e1 22px
+  );
+  opacity: 0;
+  transition: opacity .8s ease;
+}
 
-  .zigzag.show {
-    opacity: 1;
-  }
+.zigzag.show {
+  opacity: 1;
+}
 
-  /* ===== FORM ===== */
-  .overlay {
-    min-height: 100vh;
-    background: rgba(255, 235, 243, 0.8);
-    padding: 80px 0;
-    opacity: 0;
-    transition: opacity 1s ease;
-  }
+/* ===== FORM ===== */
+.overlay {
+  min-height: 100vh;
+  background: rgba(255,235,243,0.8);
+  padding: 80px 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
 
-  .overlay.show {
-    opacity: 1;
-  }
+.overlay.show {
+  opacity: 1;
+}
 
-  .container {
-    max-width: 500px;
-    margin: auto;
-    background: rgba(255,255,255,0.95);
-    padding: 30px;
-    border-radius: 20px;
-    border: 3px solid #ffb7cc;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
-  }
+.container {
+  max-width: 500px;
+  margin: auto;
+  background: rgba(255,255,255,.95);
+  padding: 30px;
+  border-radius: 20px;
+  border: 3px solid #ffb7cc;
+  box-shadow: 0 15px 30px rgba(0,0,0,.25);
+}
 
-  h1 {
-    text-align: center;
-    color: #c73b6f;
-  }
+h1 {
+  text-align: center;
+  color: #c73b6f;
+}
 
-  label {
-    display: block;
-    margin-top: 15px;
-    font-weight: bold;
-  }
+.jp {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  margin-bottom: 20px;
+}
 
-  input, select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 6px;
-    border-radius: 12px;
-    border: 1px solid #ccc;
-  }
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
 
-  button {
-    width: 100%;
-    margin-top: 25px;
-    padding: 14px;
-    border: none;
-    border-radius: 30px;
-    background: linear-gradient(135deg, #ff9ebc, #ff6f91);
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-  }
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 14px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg,#ff9ebc,#ff6f91);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* ===== THANK YOU ===== */
+.thankyou {
+  display: none;
+  text-align: center;
+}
+
+.thankyou h2 {
+  color: #c73b6f;
+}
+
+.thankyou a {
+  display: block;
+  margin: 15px 0;
+  padding: 14px;
+  border-radius: 25px;
+  background: #ffe0eb;
+  color: #b03060;
+  font-weight: bold;
+  text-decoration: none;
+}
 </style>
 </head>
 
 <body>
 
 <!-- SPLASH -->
-<div class="splash" id="splash">
-  <img src="logo.png" class="splash-logo" id="splashLogo">
+<div id="splash">
+  <img src="Sakura.png.png" alt="Sakura Logo">
 </div>
 
 <!-- HEADER -->
-<div class="header" id="header">
+<header id="header">
   <div class="header-inner">
     <div class="logo">
-      <img src="logo.png">
+      <img src="Sakura.png.png">
       <span>Sakura Houkago</span>
     </div>
 
     <div class="menu">
-      <a href="https://instagram.com/youraccount" target="_blank">
+      <a href="https://www.instagram.com/igs_sakurahoukago.club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
         Social Media
       </a>
     </div>
   </div>
-</div>
+</header>
 
 <div class="zigzag" id="zigzag"></div>
 
 <!-- FORM -->
 <div class="overlay" id="overlay">
   <div class="container">
-    <h1>🌸 Sakura Houkago 🌸<br>Recruitment Form</h1>
-    <!-- your form stays the same -->
+
+    <div id="formBox">
+      <h1>🌸 Sakura Houkago 🌸<br>Recruitment Form</h1>
+      <p class="jp">富士山・桜・日本</p>
+
+      <form
+        action="https://docs.google.com/forms/d/e/1FAIpQLSdT0jmHTeLCGrA7hn__IMY0jHfTuzGwa-tLLu2h_hSGmknOKQ/formResponse"
+        method="POST"
+        target="hidden_iframe"
+        onsubmit="submitted=true">
+
+        <input type="hidden" name="fvv" value="1">
+        <input type="hidden" name="pageHistory" value="0">
+
+        <label>貴方は名前何ですか？</br>
+        (nama kamu siapa?)</label>
+        <input type="text" name="entry.1227597404" required>
+
+        <label>SMAまたはSMPから?</br>
+        (sma atau smp?)</label>
+        <select name="entry.287472053" required>
+          <option value="" disabled selected>-- pilih --</option>
+          <option value="SMA">SMA</option>
+          <option value="SMP">SMP</option>
+        </select>
+
+        <label>貴方のクラスは何ですか？</br>
+        (kelas kamu apa? cnth:8A, 12.1)</label>
+        <input type="text" name="entry.1708316230" required>
+
+        <label>番号かLINE IDを教えてください</br>
+        (line id atau nomor telepon tolong kasih)</label>
+        <input type="text" name="entry.1037671053" required>
+
+        <label>alasan kenapa mau ikut club?</label>
+        <input type="text" name="entry.267976602" required>
+
+        <button type="submit">🌸 Kirim 🌸</button>
+      </form>
+    </div>
+
+    <div id="thankYouBox" class="thankyou">
+      <h2>🌸 Terima kasih 🌸<br>Join grup ya!</h2>
+      <a href="https://chat.whatsapp.com/IYXwQZ60LpO7jfs1bsIyZH">🌸 Grup SMA 🌸</a>
+      <a href="https://chat.whatsapp.com/Ev7TFg9trsMEV5bNGiIGd8">🌸 Grup SMP 🌸</a>
+    </div>
+
   </div>
 </div>
 
 <script>
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      document.getElementById("splash").classList.add("hide");
-      document.getElementById("header").classList.add("show");
-      document.getElementById("zigzag").classList.add("show");
-      document.getElementById("overlay").classList.add("show");
-    }, 2000);
-  });
+var submitted = false;
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    splash.classList.add("hide");
+    header.classList.add("show");
+    zigzag.classList.add("show");
+    overlay.classList.add("show");
+  }, 2000);
+});
 </script>
+
+<iframe name="hidden_iframe" style="display:none"
+onload="if(submitted){
+  formBox.style.display='none';
+  thankYouBox.style.display='block';
+}">
+</iframe>
 
 </body>
 </html>
