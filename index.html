@@ -25,15 +25,8 @@ body {
   z-index: 1000;
   transition: opacity 1s ease;
 }
-#splash.hide {
-  opacity: 0;
-  pointer-events: none;
-}
-#splash img {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-}
+#splash.hide { opacity: 0; pointer-events: none; }
+#splash img { width: 160px; height: 160px; border-radius: 50%; }
 
 /* ===== HEADER ===== */
 header {
@@ -44,10 +37,7 @@ header {
   transform: translateY(-20px);
   transition: 0.8s ease;
 }
-header.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+header.show { opacity: 1; transform: translateY(0); }
 
 .header-inner {
   max-width: 1100px;
@@ -58,19 +48,9 @@ header.show {
   align-items: center;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.logo img {
-  height: 45px;
-  border-radius: 50%;
-}
-.logo span {
-  font-weight: bold;
-  color: #c73b6f;
-}
+.logo { display: flex; align-items: center; gap: 12px; }
+.logo img { height: 45px; border-radius: 50%; }
+.logo span { font-weight: bold; color: #c73b6f; }
 
 .menu a {
   display: flex;
@@ -126,11 +106,7 @@ h1 { text-align: center; color: #c73b6f; }
   margin-bottom: 20px;
 }
 
-label {
-  display: block;
-  margin-top: 15px;
-  font-weight: bold;
-}
+label { display: block; margin-top: 15px; font-weight: bold; }
 
 input, select {
   width: 100%;
@@ -197,13 +173,16 @@ button {
 <div class="overlay" id="overlay">
   <div class="container">
 
+    <!-- ===== FORM BOX ===== -->
     <div id="formBox">
       <h1>🌸 Sakura Houkago 🌸<br>Recruitment Form</h1>
       <p class="jp">富士山・桜・日本</p>
 
-      <!-- ===== FORM FIXED & CLEAN ===== -->
-      <form action="https://docs.google.com/forms/d/e/1FAIpQLSdT0jmHTeLCGrA7hn__IMY0jHfTuzGwa-tLLu2h_hSGmknOKQ/formResponse"
-            method="POST">
+      <form
+        action="https://docs.google.com/forms/d/e/1FAIpQLSdT0jmHTeLCGrA7hn__IMY0jHfTuzGwa-tLLu2h_hSGmknOKQ/formResponse"
+        method="POST"
+        target="hidden_iframe"
+        onsubmit="submitted=true;">
 
         <label>貴方は名前何ですか？<br>(Nama kamu siapa?)</label>
         <input type="text" name="entry.1227597404" required>
@@ -211,14 +190,14 @@ button {
         <label>SMAまたはSMPから?<br>(Dari SMA atau SMP)</label>
         <select name="entry.287472053" required>
           <option value="" disabled selected>-- pilih --</option>
-          <option value="Sma">Sma</option>
-          <option value="Smp">Smp</option>
+          <option value="SMA">SMA</option>
+          <option value="SMP">SMP</option>
         </select>
 
         <label>貴方のクラスは何ですか？<br>(Kamu kelas berapa?)</label>
         <input type="text" name="entry.1708316230" required>
 
-        <label>番号かLINE IDを教えてください<br>(Nomor telepon / LINE ID)</label>
+        <label>番号かLINE IDを教えてください<br>(Nomor / LINE ID)</label>
         <input type="text" name="entry.1037671053" required>
 
         <label>Alasan kenapa mau ikut Sakura Houkago?</label>
@@ -228,17 +207,29 @@ button {
       </form>
     </div>
 
+    <!-- ===== THANK YOU BOX ===== -->
     <div id="thankYouBox" class="thankyou">
       <h2>🌸 ありがとうございます 🌸<br>
       Silahkan masuk grup sesuai Jenjangnya ya!</h2>
-      <a href="https://chat.whatsapp.com/IYXwQZ60LpO7jfs1bsIyZH">🌸 Grup SMA 🌸</a>
-      <a href="https://chat.whatsapp.com/Ev7TFg9trsMEV5bNGiIGd8">🌸 Grup SMP 🌸</a>
+
+      <a href="https://chat.whatsapp.com/IYXwQZ60LpO7jfs1bsIyZH" target="_blank">🌸 Grup SMA 🌸</a>
+      <a href="https://chat.whatsapp.com/Ev7TFg9trsMEV5bNGiIGd8" target="_blank">🌸 Grup SMP 🌸</a>
     </div>
 
   </div>
 </div>
 
+<!-- ===== HIDDEN IFRAME (WAJIB) ===== -->
+<iframe name="hidden_iframe" style="display:none"
+onload="if(submitted){
+  document.getElementById('formBox').style.display='none';
+  document.getElementById('thankYouBox').style.display='block';
+}">
+</iframe>
+
 <script>
+var submitted = false;
+
 window.addEventListener("load", () => {
   setTimeout(() => {
     splash.classList.add("hide");
@@ -251,4 +242,3 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
-
