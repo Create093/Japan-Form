@@ -249,6 +249,16 @@ button {
 
 <script>
 var submitted = false;
+function submitForm(e){
+  e.preventDefault();
+
+  fetch("https://docs.google.com/forms/d/e/1FAIpQLSdT0jmHTeLCGrA7hn__IMY0jHfTuzGwa-tLLu2h_hSGmknOKQ/formResponse", {
+    method: "POST",
+    mode: "no-cors",
+    body: new FormData(e.target)
+  });
+ document.getElementById('formBox').style.display='none';
+document.getElementById('thankYouBox').style.display='block';}
 
 window.addEventListener("load", () => {
   setTimeout(() => {
@@ -269,5 +279,6 @@ onload="if(submitted){
 
 </body>
 </html>
+
 
 
