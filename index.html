@@ -201,20 +201,14 @@ button {
       <h1>🌸 Sakura Houkago 🌸<br>Recruitment Form</h1>
       <p class="jp">富士山・桜・日本</p>
 
-      <!-- ✅ SINGLE CLEAN FORM -->
-      <form
-        action="https://docs.google.com/forms/d/e/1FAIpQLSdT0jmHTeLCGrA7hn__IMY0jHfTuzGwa-tLLu2h_hSGmknOKQ/formResponse"
-        method="POST"
-        target="hidden_iframe"
-        onsubmit="submitted=true;">
-
-        <input type="hidden" name="fvv" value="1">
-        <input type="hidden" name="pageHistory" value="0">
+      <!-- ===== FORM FIXED & CLEAN ===== -->
+      <form action="https://docs.google.com/forms/d/e/1FAIpQLSdT0jmHTeLCGrA7hn__IMY0jHfTuzGwa-tLLu2h_hSGmknOKQ/formResponse"
+            method="POST">
 
         <label>貴方は名前何ですか？<br>(Nama kamu siapa?)</label>
         <input type="text" name="entry.1227597404" required>
 
-        <label>SMAまたはSMPから?<br>(Dari SMA Atau SMP)</label>
+        <label>SMAまたはSMPから?<br>(Dari SMA atau SMP)</label>
         <select name="entry.287472053" required>
           <option value="" disabled selected>-- pilih --</option>
           <option value="SMA">SMA</option>
@@ -224,7 +218,7 @@ button {
         <label>貴方のクラスは何ですか？<br>(Kamu kelas berapa?)</label>
         <input type="text" name="entry.1708316230" required>
 
-        <label>番号かLINE IDを教えてください<br>(Nomor atau LINE ID)</label>
+        <label>番号かLINE IDを教えてください<br>(Nomor telepon / LINE ID)</label>
         <input type="text" name="entry.1037671053" required>
 
         <label>Alasan kenapa mau ikut Sakura Houkago?</label>
@@ -235,7 +229,8 @@ button {
     </div>
 
     <div id="thankYouBox" class="thankyou">
-      <h2>🌸 ありがとうございます 🌸<br>Silahkan masuk grup sesuai Jenjangnya ya!</h2>
+      <h2>🌸 ありがとうございます 🌸<br>
+      Silahkan masuk grup sesuai Jenjangnya ya!</h2>
       <a href="https://chat.whatsapp.com/IYXwQZ60LpO7jfs1bsIyZH">🌸 Grup SMA 🌸</a>
       <a href="https://chat.whatsapp.com/Ev7TFg9trsMEV5bNGiIGd8">🌸 Grup SMP 🌸</a>
     </div>
@@ -243,16 +238,7 @@ button {
   </div>
 </div>
 
-<iframe name="hidden_iframe" style="display:none"
-onload="if(submitted){
-  document.getElementById('formBox').style.display='none';
-  document.getElementById('thankYouBox').style.display='block';
-}">
-</iframe>
-
 <script>
-var submitted = false;
-
 window.addEventListener("load", () => {
   setTimeout(() => {
     splash.classList.add("hide");
