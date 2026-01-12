@@ -206,7 +206,7 @@ button {
         method="POST"
         target="hidden_iframe"
         onsubmit="submitted=true;">
-
+      <form onsubmit="submitForm(event)">
         <input type="hidden" name="fvv" value="1">
         <input type="hidden" name="pageHistory" value="0">
 
@@ -279,6 +279,7 @@ onload="if(submitted){
 
 </body>
 </html>
+
 
 
 
