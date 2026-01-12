@@ -210,31 +210,36 @@ button {
         <input type="hidden" name="fvv" value="1">
         <input type="hidden" name="pageHistory" value="0">
 
-        <label>Nama</label>
+        <label>貴方は名前何ですか？
+</br>(Nama kamu siapa?)</label>
         <input type="text" name="entry.1227597404" required>
 
-        <label>SMA / SMP</label>
+        <label>SMAまたはSMPから?
+</br>(Dari SMA Atau SMP)</label>
         <select name="entry.287472053" required>
           <option value="" disabled selected>-- pilih --</option>
           <option value="SMA">SMA</option>
           <option value="SMP">SMP</option>
         </select>
 
-        <label>Kelas</label>
+        <label>貴方のクラスは何ですか？</br>
+          (Kamu kelas berapa? Ex: 8A , 12.1)</label>
         <input type="text" name="entry.1708316230" required>
 
-        <label>Kontak</label>
+        <label>番号かLINE IDを教えてください
+</br>(Tolong kasih nomor telepon atau line id kamu)</label>
         <input type="text" name="entry.1037671053" required>
 
-        <label>Alasan</label>
+        <label>alasan kenapa mau ikut club sakura houkago club?</label>
         <input type="text" name="entry.267976602" required>
 
-        <button type="submit">🌸 Kirim 🌸</button>
+        <button type="submit">🌸 送信 / Kirim 🌸</button>
       </form>
     </div>
 
     <div id="thankYouBox" class="thankyou">
-      <h2>🌸 Terima kasih 🌸</h2>
+      <h2>🌸 ありがとうございます 🌸</br>
+      Silahkan masuk grup sesuai Jenjangnya ya!</h2>
       <a href="https://chat.whatsapp.com/IYXwQZ60LpO7jfs1bsIyZH">🌸 Grup SMA 🌸</a>
       <a href="https://chat.whatsapp.com/Ev7TFg9trsMEV5bNGiIGd8">🌸 Grup SMP 🌸</a>
     </div>
@@ -257,10 +262,11 @@ window.addEventListener("load", () => {
 
 <iframe name="hidden_iframe" style="display:none"
 onload="if(submitted){
-  formBox.style.display='none';
-  thankYouBox.style.display='block';
-}">
+    document.getElementById('formBox').style.display='none';
+    document.getElementById('thankYouBox').style.display='block';
+  }">
 </iframe>
 
 </body>
 </html>
+
