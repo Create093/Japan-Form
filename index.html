@@ -5,10 +5,7 @@
 <title>さくら申込フォーム</title>
 
 <style>
-/* ===== RESET ===== */
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -28,12 +25,10 @@ body {
   z-index: 1000;
   transition: opacity 1s ease;
 }
-
 #splash.hide {
   opacity: 0;
   pointer-events: none;
 }
-
 #splash img {
   width: 160px;
   height: 160px;
@@ -49,7 +44,6 @@ header {
   transform: translateY(-20px);
   transition: 0.8s ease;
 }
-
 header.show {
   opacity: 1;
   transform: translateY(0);
@@ -69,12 +63,10 @@ header.show {
   align-items: center;
   gap: 12px;
 }
-
 .logo img {
   height: 45px;
   border-radius: 50%;
 }
-
 .logo span {
   font-weight: bold;
   color: #c73b6f;
@@ -88,10 +80,7 @@ header.show {
   text-decoration: none;
   color: #444;
 }
-
-.menu img {
-  width: 22px;
-}
+.menu img { width: 22px; }
 
 /* ===== DECOR ===== */
 .zigzag {
@@ -106,10 +95,7 @@ header.show {
   opacity: 0;
   transition: opacity .8s ease;
 }
-
-.zigzag.show {
-  opacity: 1;
-}
+.zigzag.show { opacity: 1; }
 
 /* ===== FORM ===== */
 .overlay {
@@ -119,10 +105,7 @@ header.show {
   opacity: 0;
   transition: opacity 1s ease;
 }
-
-.overlay.show {
-  opacity: 1;
-}
+.overlay.show { opacity: 1; }
 
 .container {
   max-width: 500px;
@@ -134,10 +117,7 @@ header.show {
   box-shadow: 0 15px 30px rgba(0,0,0,.25);
 }
 
-h1 {
-  text-align: center;
-  color: #c73b6f;
-}
+h1 { text-align: center; color: #c73b6f; }
 
 .jp {
   text-align: center;
@@ -177,11 +157,7 @@ button {
   display: none;
   text-align: center;
 }
-
-.thankyou h2 {
-  color: #c73b6f;
-}
-
+.thankyou h2 { color: #c73b6f; }
 .thankyou a {
   display: block;
   margin: 15px 0;
@@ -209,9 +185,8 @@ button {
       <img src="Sakura.png.png">
       <span>Sakura Houkago</span>
     </div>
-
     <div class="menu">
-      <a href="https://www.instagram.com/igs_sakurahoukago.club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+      <a href="https://www.instagram.com/igs_sakurahoukago.club" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
         Social Media
       </a>
@@ -235,27 +210,25 @@ button {
         target="hidden_iframe"
         onsubmit="submitted=true">
 
+        <!-- REQUIRED HIDDEN FIELDS -->
         <input type="hidden" name="fvv" value="1">
         <input type="hidden" name="pageHistory" value="0">
+        <input type="hidden" name="fbzx" value="-1234567890123456789">
 
-        <label>貴方は名前何ですか？</br>
-        (nama kamu siapa?)</label>
+        <label>貴方は名前何ですか？<br>(nama kamu siapa?)</label>
         <input type="text" name="entry.1227597404" required>
 
-        <label>SMAまたはSMPから?</br>
-        (sma atau smp?)</label>
+        <label>SMAまたはSMPから?<br>(sma atau smp?)</label>
         <select name="entry.287472053" required>
           <option value="" disabled selected>-- pilih --</option>
           <option value="SMA">SMA</option>
           <option value="SMP">SMP</option>
         </select>
 
-        <label>貴方のクラスは何ですか？</br>
-        (kelas kamu apa? cnth:8A, 12.1)</label>
+        <label>貴方のクラスは何ですか？</label>
         <input type="text" name="entry.1708316230" required>
 
-        <label>番号かLINE IDを教えてください</br>
-        (line id atau nomor telepon tolong kasih)</label>
+        <label>番号かLINE IDを教えてください</label>
         <input type="text" name="entry.1037671053" required>
 
         <label>alasan kenapa mau ikut club?</label>
